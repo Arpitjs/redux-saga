@@ -1,9 +1,8 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getUsers } from "./userReducer";
+import { sagaActions } from "./actions";
 
-export const sagaActions = {
-  FETCH_DATA_SAGA: "FETCH_DATA_SAGA",
-};
+const { GET_USERS_FETCH } = sagaActions;
 
 function usersFetch() {
   return fetch("https://jsonplaceholder.typicode.com/users").then((response) =>
@@ -17,7 +16,7 @@ function* workGetUsersFetch() {
 }
 
 function* mySaga() {
-  yield takeEvery(sagaActions.FETCH_DATA_SAGA, workGetUsersFetch);
+  yield takeEvery(GET_USERS_FETCH, workGetUsersFetch);
 }
 
 export default mySaga;
