@@ -5,7 +5,8 @@ import { sagaActions } from "./actions";
 const { GET_USERS_FETCH } = sagaActions;
 
 function usersFetch() {
-  return fetch("https://jsonplaceholder.typicode.com/users").then((response) =>
+  return fetch("https://jsonplaceholder.typicode.com/posts")  
+  .then((response) =>
     response.json()
   );
 }
